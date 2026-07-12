@@ -13,24 +13,21 @@ Application
 
 ## Схема
 
-```mermaid
 graph TD
-    App["⚙️ Application"]
-    Life["🔄 Жизненный цикл"]
-    Res["🎨 Глобальные ресурсы и стили"]
-    Entry["🚪 Точка входа"]
+    Win["🪟 Window"]
+    OS["🖥️ Оконный менеджер ОС<br/>заголовок, границы, resize"]
+    Content["📦 Content<br/>корневое визуальное дерево"]
+    Events["⚡ Системные события<br/>Closing, Activated, Resized"]
 
-    App --> Life
-    App --> Res
-    App --> Entry
+    Win --> OS
+    Win --> Content
+    Win --> Events
 
-    classDef appStyle fill:#4B3FCF,stroke:#2E2470,stroke-width:3px,color:#fff,rx:12,ry:12
-    classDef childStyle fill:#8E85FF,stroke:#6C63FF,stroke-width:2px,color:#fff,rx:10,ry:10
+    classDef winStyle fill:#6C63FF,stroke:#4B3FCF,stroke-width:3px,color:#fff,rx:12,ry:12
+    classDef childStyle fill:#B8B2FF,stroke:#8E85FF,stroke-width:2px,color:#222,rx:10,ry:10
 
-    class App appStyle
-    class Life,Res,Entry childStyle
-```
-
+    class Win winStyle
+    class OS,Content,Events childStyle
 ## Заметки лектора
 
 Application — единственный экземпляр на приложение (singleton), точка входа — метод OnFrameworkInitializationCompleted.
